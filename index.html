@@ -599,38 +599,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JVM类加载过程"><a href="#JVM类加载过程" class="headerlink" title="JVM类加载过程"></a>JVM类加载过程</h1><p>java类加载过程：<strong>加载–&gt;验证–&gt;准备–&gt;解析–&gt;初始化</strong>，之后类就可以被使用了。绝大部分情况下是按这</p>
-<p>样的顺序来完成类的加载全过程的。但是是有例外的地方，解析也是可以在初始化之后进行的，这是为了支持</p>
-<p>java的运行时绑定，并且在一个阶段进行过程中也可能会激活后一个阶段，而不是等待一个阶段结束再进行后一个阶段。</p>
-<p><img src="/2021/05/16/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%5C1.jpg" alt="img"></p>
-<p><strong>1.加载</strong></p>
-<p>加载时jvm做了这三件事：</p>
-<p>1）通过一个类的全限定名来获取该类的二进制字节流</p>
-<p>2）将这个字节流的静态存储结构转化为方法区运行时数据结构</p>
-<p>3）在内存堆中生成一个代表该类的java.lang.Class对象，作为该类数据的访问入口</p>
-<p><strong>2.验证</strong></p>
-<p>验证、准备、解析这三步可以看做是一个连接的过程，将类的字节码连接到JVM的运行状态之中</p>
-<p>验证是为了确保Class文件的字节流中包含的信息符合当前虚拟机的要求，不会威胁到jvm的安全</p>
-<p>验证主要包括以下几个方面的验证：</p>
-<p>　　1）文件格式的验证，验证字节流是否符合Class文件的规范，是否能被当前版本的虚拟机处理</p>
-<p>2）元数据验证，对字节码描述的信息进行语义分析，确保符合java语言规范</p>
-<p>　　3）字节码验证 通过数据流和控制流分析，确定语义是合法的，符合逻辑的</p>
-<p>　　4）符号引用验证 这个校验在解析阶段发生</p>
-<p><strong>3.准备</strong></p>
-<p>为类的静态变量分配内存，初始化为系统的初始值。对于final static修饰的变量，</p>
-<p>直接赋值为用户的定义值。如下面的例子：这里在准备阶段过后的初始值为0，而不是7</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static int a=7</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.解析</strong></p>
-<p>解析是将常量池内的符号引用转为直接引用（如物理内存地址指针）</p>
-<p><strong>5.初始化</strong></p>
-<p>到了初始化阶段，jvm才真正开始执行类中定义的java代码</p>
-<p>1）初始化阶段是执行类构造器()方法的过程。类构造器()方法是由编译器自动收集</p>
-<p> 类中的所有类变量的赋值动作和静态语句块(static块)中的语句合并产生的。</p>
-<p>2）当初始化一个类的时候，如果发现其父类还没有进行过初始化、则需要先触发其父类的初始化。</p>
-<p>3）虚拟机会保证一个类的()方法在多线程环境中被正确加锁和同步。</p>
-<p><img src="/2021/05/16/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%5C2.png" alt="img"></p>
-
+        <h1 id="JVM类加载过程"><a href="#JVM类加载过程" class="headerlink" title="JVM类加载过程"></a>JVM类加载过程</h1>
+        
+          <a class="article-more-a" href="/2021/05/16/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/#more">more >></a>
+        
       
       <!-- 增加版权声明 -->
 
