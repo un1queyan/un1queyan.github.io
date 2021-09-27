@@ -6,22 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java基础 | un1queyan的blog</title>
+  <title>Java NIO | un1queyan的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaEE">
+  <meta name="description" content="Java NIO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础">
-<meta property="og:url" content="http://example.com/2020/07/01/JavaSE/index.html">
+<meta property="og:title" content="Java NIO">
+<meta property="og:url" content="http://example.com/2021/05/22/JavaNIO/index.html">
 <meta property="og:site_name" content="un1queyan的blog">
-<meta property="og:description" content="JavaEE">
+<meta property="og:description" content="Java NIO">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2020/07/01/JavaSE/01.png">
-<meta property="article:published_time" content="2020-07-01T10:18:48.000Z">
-<meta property="article:modified_time" content="2021-07-19T11:40:37.405Z">
+<meta property="og:image" content="http://example.com/2021/05/22/JavaNIO/image-20210922204717792.png">
+<meta property="og:image" content="http://example.com/2021/05/22/JavaNIO/image-20210922213413518.png">
+<meta property="og:image" content="http://example.com/2021/05/22/JavaNIO/image-20210922213433615.png">
+<meta property="og:image" content="http://example.com/2021/05/22/JavaNIO/image-20210922213452653.png">
+<meta property="og:image" content="http://example.com/2021/05/22/JavaNIO/image-20210130183427994.png">
+<meta property="article:published_time" content="2021-05-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-22T14:45:19.786Z">
 <meta property="article:author" content="un1queyan">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/07/01/JavaSE/01.png">
+<meta name="twitter:image" content="http://example.com/2021/05/22/JavaNIO/image-20210922204717792.png">
   
     <link rel="alternative" href="/atom.xml" title="un1queyan的blog" type="application/atom+xml">
   
@@ -164,14 +168,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-JavaSE" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-JavaNIO" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java基础
+      Java NIO
     </h1>
   
 
@@ -186,28 +190,94 @@
   </a>
   
         
-        <a href="/2020/07/01/JavaSE/" class="archive-article-date">
-  	<time datetime="2020-07-01T10:18:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
+        <a href="/2021/05/22/JavaNIO/" class="archive-article-date">
+  	<time datetime="2021-05-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h1><span id="more"></span>
+        <h1 id="Java-NIO"><a href="#Java-NIO" class="headerlink" title="Java NIO"></a>Java NIO</h1><span id="more"></span>
 
-<h2 id="关键字和保留字"><a href="#关键字和保留字" class="headerlink" title="关键字和保留字"></a>关键字和保留字</h2><img src="/2020/07/01/JavaSE/01.png">
+<h2 id="1-Java-NIO简介"><a href="#1-Java-NIO简介" class="headerlink" title="1 Java NIO简介"></a>1 Java NIO简介</h2><p>Java NIO（ New IO）是从java 1.4版本开始引入的一个新的IO API，可以替代标准的java IO API。NIO与原来的IO有同样的作用和目的，但是使用的方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。</p>
+<h3 id="1-1-阻塞IO"><a href="#1-1-阻塞IO" class="headerlink" title="1.1 阻塞IO"></a>1.1 阻塞IO</h3><p>通常在进行同步IO操作时，如果读取数据，代码会阻塞直至有可供读取的数据。同样，写入调用将会阻塞直至数据能够写入。传统的Server/Client模式会基于TPR（Thread pre Request），这种模式带来的一个问题是线程数量剧增，大量的线程会增大服务器的开销。大多数的实现为了避免这个问题，都采用了线程池的模型，并设置了线程池的最大数量，这也带来了新的问题，如果线程池中有100个线程，而有100个用户都在下载大文件，会导致101个用户的请求无法及时处理</p>
+<h3 id="1-2-非阻塞IO（NIO）"><a href="#1-2-非阻塞IO（NIO）" class="headerlink" title="1.2 非阻塞IO（NIO）"></a>1.2 非阻塞IO（NIO）</h3><p>NIO中非阻塞IO采用了基于Reactor模式的工作方式，I/O调用不会被阻塞，相反是注册感兴趣的特定I/O事件，如可读数据到达，新的套接字连接等等，在发生特定的事件时，系统再通知我们。NIO中实现非阻塞I/O的核心对象就是Selector，Selector就是注册各种I/O事件的地方，而当我们感兴趣的事件发生时，就是这个对象告诉我们所发生的事件</p>
+<p><img src="/2021/05/22/JavaNIO/image-20210922204717792.png" alt="image-20210922204717792"></p>
+<p>从图中可以看出，当有读或写等任何注册的事件发生时，可以从Selector中获得相应的SelectionKey，同时从SelectionKey中可以找到发生的事件和该事件所发生的具体 SelectableChannel，以获得客户端发送过来的数据。</p>
+<p>非阻塞指的是IO事件本身不阻塞，但是获取IO事件的select()方法是需要阻塞等待的，区别是阻塞的IO会阻塞在IO操作上，NIO阻塞在事件获取上，没有事件就没有IO，从高层看IO就不阻塞了，也就是说只有IO已经发生那么我们才评估IO是否阻塞，但是select()阻塞的时候IO还没有完全发生，NIO的本质是延迟IO操作到真正发生IO的时候，而不是以前的只要IO流打开了就一直等待着IO操作。</p>
+<h3 id="1-3-NIO概述"><a href="#1-3-NIO概述" class="headerlink" title="1.3 NIO概述"></a>1.3 NIO概述</h3><p>Java NIO 由以下几个核心部分组成：</p>
+<ul>
+<li>Channels</li>
+<li>Buffers</li>
+<li>Selectors</li>
+</ul>
+<h3 id="1-4-Java-NIO-与-IO-的主要区别"><a href="#1-4-Java-NIO-与-IO-的主要区别" class="headerlink" title="1.4  Java NIO 与 IO 的主要区别"></a>1.4  Java NIO 与 IO 的主要区别</h3><table>
+<thead>
+<tr>
+<th>IO</th>
+<th>NIO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>面向流(Stream Oriented)</td>
+<td>面向缓冲区(Buffer Oriented)</td>
+</tr>
+<tr>
+<td>阻塞IO(Blocking IO)</td>
+<td>非阻塞IO(Non Blocking IO)</td>
+</tr>
+<tr>
+<td>(无)</td>
+<td>选择器(Selectors)</td>
+</tr>
+<tr>
+<td>单向</td>
+<td>双向</td>
+</tr>
+</tbody></table>
+<h2 id="2-缓冲区-Buffer-和通道-Channel"><a href="#2-缓冲区-Buffer-和通道-Channel" class="headerlink" title="2  缓冲区(Buffer)和通道(Channel)"></a>2  缓冲区(Buffer)和通道(Channel)</h2><h3 id="2-1-Channel概述"><a href="#2-1-Channel概述" class="headerlink" title="2.1 Channel概述"></a>2.1 Channel概述</h3><p>通道（ Channel）：由 java.nio.channels 包定义的。 Channel 表示 IO 源与目标打开的连接。Channel 类似于传统的“流”。只不过 Channel本身不能直接访问数据， Channel 只能与Buffer 进行交互。</p>
+<p>Channel是一个通道，可以通过它读取和写入数据，它就像水管一样，网络数据通过Channel读取和写入。通道与流的不同之处在于通道是双向的，流只是在一个方向上移动（一个流必须是InoutStream或者OutputStream的子类）而且通道可以用于读、写或者同时用于读写。因为Channel是全双工的，所以他可以比流更好的映射底层操作系统的API。  </p>
+<p>NIO中通过Channel封装了对数据源的操作，通过channel我们可以操作数据源，但又不必关心数据源的具体物理结构。这个数据源可能是多种的。比如，可以是文件，也可以是网络socket。在大多数应用中，channel与文件描述符或者socket是一一对应的。Channel用于在字节缓冲区和位于通道另一侧的实体（通常是一个文件或套接字）之间有效地传输数据。</p>
+<p><img src="/2021/05/22/JavaNIO/image-20210922213413518.png" alt="image-20210922213413518"></p>
+<p><img src="/2021/05/22/JavaNIO/image-20210922213433615.png" alt="image-20210922213433615"></p>
+<p><img src="/2021/05/22/JavaNIO/image-20210922213452653.png" alt="image-20210922213452653"></p>
+<h3 id="2-2-缓冲区（-Buffer）"><a href="#2-2-缓冲区（-Buffer）" class="headerlink" title="2.2 缓冲区（ Buffer）"></a>2.2 缓冲区（ Buffer）</h3><p>一个用于特定基本数据类型的容器。由 java.nio 包定义的，所有缓冲区都是 Buffer 抽象类的子类。</p>
+<ul>
+<li>Java NIO 中的 Buffer 主要用于与 NIO 通道进行交互，数据是从通道读入缓冲区，从缓冲区写入通道中的。</li>
+<li>Buffer 就像一个数组，可以保存多个相同类型的数据。根据数据类型不同(boolean 除外) ，有以下 Buffer 常用子类：<pre><code>* ByteBuffer
+</code></pre>
+<ul>
+<li>CharBuffer</li>
+<li>ShortBuffer</li>
+<li>IntBuffer</li>
+<li>LongBuffer</li>
+<li>FloatBuffer</li>
+<li>DoubleBuffer</li>
+</ul>
+</li>
+</ul>
+<p>上述 Buffer 类 他们都采用相似的方法进行管理数据，只是各自管理的数据类型不同而已。都是通过如下方法获取一个 Buffer对象：</p>
+<p><code>static XxxBuffer allocate(int capacity)</code> : 创建一个容量为 capacity 的 XxxBuffer 对象</p>
+<h3 id="2-3-缓冲区的基本属性"><a href="#2-3-缓冲区的基本属性" class="headerlink" title="2.3 缓冲区的基本属性"></a>2.3 缓冲区的基本属性</h3><ul>
+<li><p>capacity： 容量：表示Buffer的最大数据容量，缓冲区容量不能为负，并且创建后不能更改。</p>
+</li>
+<li><p>limit： 界限，表示缓冲区中可以操作数据的大小。第一个不用改读取或写入的数据的索引，即位于limit后的数据不能读写，缓冲区的限制不能为负，并且不能大于其容量。</p>
+</li>
+<li><p>position： 位置，下一个要读取或写入的数据的索引</p>
+</li>
+<li><p>mark&amp;reset：标记与重置，标记是一个索引，通过Buffer中的mark()方法指定Buffer中的一个特定的position，之后可以通过调用reset()方法恢复到这个position。</p>
+</li>
+<li><p>标记、 位置、 限制、 容量遵守以下不变式： 0 &lt;= mark &lt;= position &lt;= limit &lt;= capacity</p>
+</li>
+</ul>
+<p><img src="/2021/05/22/JavaNIO/image-20210130183427994.png" alt="image-20210922213452653"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      String str = <span class="string">&quot;abcde&quot;</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 1. 分配一个指定大小的缓冲区</span></span><br><span class="line">      ByteBuffer buf = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;-------------allocate()---------------&quot;</span>);</span><br><span class="line">      System.out.println(buf.position());</span><br><span class="line">      System.out.println(buf.limit());</span><br><span class="line">      System.out.println(buf.capacity());</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 2. 利用put() 存入数据到缓冲区</span></span><br><span class="line">      buf.put(str.getBytes());</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;-------------put()---------------&quot;</span>);</span><br><span class="line">      System.out.println(buf.position());</span><br><span class="line">      System.out.println(buf.limit());</span><br><span class="line">      System.out.println(buf.capacity());</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 3. 切换成读取数据的模式</span></span><br><span class="line">      buf.flip();</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;-------------put()---------------&quot;</span>);</span><br><span class="line">      System.out.println(buf.position());</span><br><span class="line">      System.out.println(buf.limit());</span><br><span class="line">      System.out.println(buf.capacity());</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 4. 利用get()方法读取缓冲区的数据</span></span><br><span class="line">      <span class="keyword">byte</span>[] dst = <span class="keyword">new</span> <span class="keyword">byte</span>[buf.limit()];</span><br><span class="line">      buf.get(dst);</span><br><span class="line">      System.out.println(<span class="keyword">new</span> String(dst, <span class="number">0</span>, dst.length));</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;-------------get()---------------&quot;</span>);</span><br><span class="line">      System.out.println(buf.position());</span><br><span class="line">      System.out.println(buf.limit());</span><br><span class="line">      System.out.println(buf.capacity());</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 5. rewind() 可重复读数据</span></span><br><span class="line">      buf.rewind();</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;-------------rewind()---------------&quot;</span>);</span><br><span class="line">      System.out.println(buf.position());</span><br><span class="line">      System.out.println(buf.limit());</span><br><span class="line">      System.out.println(buf.capacity());</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 6. clear() 清空缓冲区 里面的数据还在！！！但是处于被遗忘状态</span></span><br><span class="line">      buf.clear();</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;-------------clear()---------------&quot;</span>);</span><br><span class="line">      System.out.println(buf.position());</span><br><span class="line">      System.out.println(buf.limit());</span><br><span class="line">      System.out.println(buf.capacity());</span><br><span class="line"></span><br><span class="line">      System.out.println((<span class="keyword">char</span>) buf.get());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h2><h4 id="（1）基本的数据类型"><a href="#（1）基本的数据类型" class="headerlink" title="（1）基本的数据类型"></a>（1）基本的数据类型</h4><p>bytes：字节整型，存储容量为1字节=8个二进制位，包含的整数范围-128~127  </p>
-<p>short: 短整型，存储容量为2字节=16位，包含二进制整数的范围是-2^15~2^15 - 1  </p>
-<p>int: 整型，存储容量为4字节=32位，包含二进制整数范围是-2^31~2^31 - 1  </p>
-<p>long: 长整型，存储容量为8字节=64位，包含二进制整数范围是-2^63~2^63 - 1 如果long的范围超过了int的最大长度，必须在最后加“l”  </p>
-<p>float：单精度浮点数，存储容量是4个字节，最大能精确的小数位为7-8位，小数后必须加’f’或’F’   </p>
-<p>double: 双精度浮点数，存储容量为8个字节，最大能精确的小数位为15-16位   </p>
-<p>char: 字符类型，存储容量为2字节，有且仅能存储一个符号。数据必须用单引号括起来 eg：’a’    </p>
-<p>Boolean：布尔类型，存储容量为1位，包含两个类型true和false  </p>
-<h4 id="（2）引用数据类型"><a href="#（2）引用数据类型" class="headerlink" title="（2）引用数据类型"></a>（2）引用数据类型</h4><p>分为： 数组、类、接口  </p>
-<p>类类型：String字符串类型，数据必须使用双引号引起来</p>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String str = <span class="string">&quot;abcde&quot;</span>;</span><br><span class="line"></span><br><span class="line">    ByteBuffer buf = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">    buf.put(str.getBytes());</span><br><span class="line"></span><br><span class="line">    buf.flip();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">byte</span>[] dst = <span class="keyword">new</span> <span class="keyword">byte</span>[buf.limit()];</span><br><span class="line">    buf.get(dst, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">    System.out.println(<span class="keyword">new</span> String(dst, <span class="number">0</span>, <span class="number">2</span>)); <span class="comment">//ab</span></span><br><span class="line">    System.out.println(buf.position()); <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//mark() : 标记</span></span><br><span class="line">    buf.mark();</span><br><span class="line"></span><br><span class="line">    buf.get(dst, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">    System.out.println(<span class="keyword">new</span> String(dst, <span class="number">2</span>, <span class="number">2</span>)); <span class="comment">//cd</span></span><br><span class="line">    System.out.println(buf.position()); <span class="comment">//4</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//reset() : 恢复到 mark 的位置</span></span><br><span class="line">    buf.reset();</span><br><span class="line">    System.out.println(buf.position()); <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断缓冲区中是否还有剩余数据</span></span><br><span class="line">    <span class="keyword">if</span>(buf.hasRemaining())&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取缓冲区中可以操作的数量</span></span><br><span class="line">        System.out.println(buf.remaining()); <span class="comment">//3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
       <!-- 增加版权声明 -->
@@ -316,7 +386,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/07/01/JavaSE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/22/JavaNIO/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,18 +400,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/06/float%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/05/22/HashMap%E6%BA%90%E7%A0%81/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          float计算的底层原理
+          HashMap源码
         
       </div>
     </a>
   
   
-    <a href="/2020/06/15/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2021/05/16/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM类加载过程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -368,7 +438,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaEE"><span class="toc-number">1.</span> <span class="toc-text">JavaEE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E4%BF%9D%E7%95%99%E5%AD%97"><span class="toc-number">1.1.</span> <span class="toc-text">关键字和保留字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">数据类型和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">（1）基本的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">（2）引用数据类型</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-NIO"><span class="toc-number">1.</span> <span class="toc-text">Java NIO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Java-NIO%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1 Java NIO简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%98%BB%E5%A1%9EIO"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 阻塞IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%9D%9E%E9%98%BB%E5%A1%9EIO%EF%BC%88NIO%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 非阻塞IO（NIO）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-NIO%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 NIO概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Java-NIO-%E4%B8%8E-IO-%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4  Java NIO 与 IO 的主要区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BC%93%E5%86%B2%E5%8C%BA-Buffer-%E5%92%8C%E9%80%9A%E9%81%93-Channel"><span class="toc-number">1.2.</span> <span class="toc-text">2  缓冲区(Buffer)和通道(Channel)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Channel%E6%A6%82%E8%BF%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 Channel概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%88-Buffer%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 缓冲区（ Buffer）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 缓冲区的基本属性</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -567,6 +637,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
             
             <div class="clearfix"></div>
