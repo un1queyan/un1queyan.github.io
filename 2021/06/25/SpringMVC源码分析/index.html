@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>un1queyan的blog</title>
+  <title>springMVC源码 | un1queyan的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="un1queyan的blog">
-<meta property="og:url" content="http://example.com/2021/09/08/redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+  <meta name="description" content="SpringMVC源码分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springMVC源码">
+<meta property="og:url" content="http://example.com/2021/06/25/SpringMVC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="un1queyan的blog">
+<meta property="og:description" content="SpringMVC源码分析">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-08T01:55:17.564Z">
-<meta property="article:modified_time" content="2021-09-13T11:49:28.017Z">
+<meta property="og:image" content="http://example.com/2021/06/25/SpringMVC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/image-20210927122453714.png">
+<meta property="article:published_time" content="2021-06-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-27T06:55:20.249Z">
 <meta property="article:author" content="un1queyan">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/06/25/SpringMVC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/image-20210927122453714.png">
   
     <link rel="alternative" href="/atom.xml" title="un1queyan的blog" type="application/atom+xml">
   
@@ -159,12 +164,54 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-redis学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-SpringMVC源码分析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      springMVC源码
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+  
+        
+        <a href="/2021/06/25/SpringMVC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2021-06-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="SpringMVC源码分析"><a href="#SpringMVC源码分析" class="headerlink" title="SpringMVC源码分析"></a>SpringMVC源码分析</h1><span id="more"></span>
+
+
+
+<h2 id="一、SpringMVC请求处理"><a href="#一、SpringMVC请求处理" class="headerlink" title="一、SpringMVC请求处理"></a>一、SpringMVC请求处理</h2><p><img src="/2021/06/25/SpringMVC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/image-20210927122453714.png" alt="image-20210927122453714"></p>
+<p>执行流程：</p>
+<p>（1） 客户端浏览器发送请求</p>
+<p>（2） tomcat接受请求，解析请求</p>
+<p>（3） tomcat将请求交给dispatcherServlet</p>
+<p>（4） dispatcher调用handlerMapping，通过url查找对应的controller对象</p>
+<p>（5） dispatcher将controller对象交给HandlerAdapter，返回适配之后的controller（handler）</p>
+<p>（6） 根据url找到controller中对应的处理方法</p>
+<p>（7） 执行适配后的controller的处理方法，返回ModelAndView</p>
+<p>（8） dispatcherServlet将modelAndView交给视图解析器渲染，返回渲染后的视图</p>
+<p>（9） dispatcher将选择后的视图交给tomcat</p>
+<p>（10） tomcat将视图响应给客户端浏览器                                                                                                                               </p>
+<p>（11） 客户端浏览器解析响应，展示视图</p>
+
       
       <!-- 增加版权声明 -->
 
@@ -211,6 +258,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -261,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/09/08/redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/25/SpringMVC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,9 +333,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/07/08/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JVM学习笔记
+        
+      </div>
+    </a>
   
-    <a href="/2021/07/08/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java学习笔记</div>
+  
+    <a href="/2021/06/22/springMVC%E6%A1%86%E6%9E%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springMVC框架</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -304,7 +371,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">SpringMVC源码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81SpringMVC%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">一、SpringMVC请求处理</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
