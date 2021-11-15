@@ -6,15 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>un1queyan的blog</title>
+  <title>JVM解释器与编译器 | un1queyan的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="un1queyan的blog">
-<meta property="og:url" content="http://example.com/page/5/index.html">
+  <meta name="description" content="JVM解释器与编译器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM解释器与编译器">
+<meta property="og:url" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/index.html">
 <meta property="og:site_name" content="un1queyan的blog">
+<meta property="og:description" content="JVM解释器与编译器">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/20190216150654263.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180704524.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180809412.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180630485.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180512923.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/20190216163612574.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180532393.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/20190216170558765.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208181219075.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208181305464.png">
+<meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208181319077.png">
+<meta property="article:published_time" content="2020-10-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-15T11:28:40.092Z">
 <meta property="article:author" content="un1queyan">
+<meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/20190216150654263.png">
   
     <link rel="alternative" href="/atom.xml" title="un1queyan的blog" type="application/atom+xml">
   
@@ -157,708 +174,27 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-JVM解释器与编译器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/10/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a>
+    <h1 class="article-title" itemprop="name">
+      JVM解释器与编译器
     </h1>
   
 
         <!--显示阅读次数-->
 
-        
-        <a href="/2021/02/10/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2021-02-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h1>
-        
-          <a class="article-more-a" href="/2021/02/10/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/10/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
   
-    <article id="post-Http请求的声明周期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/08/Http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/">Http请求的声明周期</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2021/01/08/Http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/" class="archive-article-date">
-  	<time datetime="2021-01-08T12:18:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Http请求的生命周期"><a href="#Http请求的生命周期" class="headerlink" title="Http请求的生命周期"></a>Http请求的生命周期</h1>
-        
-          <a class="article-more-a" href="/2021/01/08/Http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/08/Http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis哨兵机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/25/redis%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/">redis哨兵</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2020/12/25/redis%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="redis哨兵机制"><a href="#redis哨兵机制" class="headerlink" title="redis哨兵机制"></a>redis哨兵机制</h1>
-        
-          <a class="article-more-a" href="/2020/12/25/redis%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/25/redis%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/25/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2020/12/25/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1>
-        
-          <a class="article-more-a" href="/2020/12/25/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/25/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-类加载过程详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/25/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/">类加载过程详解</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2020/12/25/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1>
-        
-          <a class="article-more-a" href="/2020/12/25/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/25/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis主从同步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/12/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">redis主从同步</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2020/12/12/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-12-12T08:18:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="redis主从同步，以及两种高可用模式"><a href="#redis主从同步，以及两种高可用模式" class="headerlink" title="redis主从同步，以及两种高可用模式"></a>redis主从同步，以及两种高可用模式</h1>
-        
-          <a class="article-more-a" href="/2020/12/12/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/12/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-对象的实例化、内存布局和访问定位" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E3%80%81%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80%E5%92%8C%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D/">对象的实例化、内存布局和访问定位</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2020/10/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E3%80%81%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80%E5%92%8C%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D/" class="archive-article-date">
-  	<time datetime="2020-10-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="对象内存布局"><a href="#对象内存布局" class="headerlink" title="对象内存布局"></a>对象内存布局</h2>
-        
-          <a class="article-more-a" href="/2020/10/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E3%80%81%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80%E5%92%8C%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E3%80%81%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80%E5%92%8C%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JVM运行时的数据区域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/">JVM运行时的数据结构</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/" class="archive-article-date">
-  	<time datetime="2020-10-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="JVM运行时数据区域"><a href="#JVM运行时数据区域" class="headerlink" title="JVM运行时数据区域"></a>JVM运行时数据区域</h2>
-        
-          <a class="article-more-a" href="/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JVM解释器与编译器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/">JVM解释器与编译器</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
         
         <a href="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/" class="archive-article-date">
   	<time datetime="2020-10-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
@@ -868,10 +204,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JVM解释器与编译器"><a href="#JVM解释器与编译器" class="headerlink" title="JVM解释器与编译器"></a>JVM解释器与编译器</h1>
-        
-          <a class="article-more-a" href="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/#more">more >></a>
-        
+        <h1 id="JVM解释器与编译器"><a href="#JVM解释器与编译器" class="headerlink" title="JVM解释器与编译器"></a>JVM解释器与编译器</h1><span id="more"></span>
+
+<p>许多人认为Java是一门解释执行的语言，由虚拟机解释执行class文件字节码。事实是Java是一门解释执行和编译执行并存的语言。JVM解释器让Java程序快速启动，编译器让Java程序高效运行，这</p>
+<p>是Java长久生存的一大重要原因。</p>
+<h1 id="解释器与编译器的关系"><a href="#解释器与编译器的关系" class="headerlink" title="解释器与编译器的关系"></a>解释器与编译器的关系</h1><p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/20190216150654263.png" alt="img"></p>
+<p>在一个Java程序执行时，首先通过javac把java文件编译为虚拟机可以识别的class文件。然后由JVM解释器解释class文件中的字节码，通过JVM把解释结果转变为机器码执行。这是我们通常所说的解释执行。</p>
+<p>C++这类语言都是直接把代码编译为机器码执行交给计算机执行，这是我们通常所说的编译执行。</p>
+<p>两者的最大区别就是是否存在一个中间处理器去参与由代码到机器码的流程。</p>
+<p>解释执行有个缺点就是每次都要解释字节码然后才生成机器码让计算机执行，解释的过程会占用很多的时间。于是JVM中诞生了编译器，编译器可以通过热点代码探测技术，找到运行次数最多的代码，把这些代码及时编译为机器码，在下次调用这些代码时跳过解释的步骤，直接执行编译好的机器码，以达到加速运行时间的目的。</p>
+<p>Java语言解释器与编译器并存的理念让Java程序得到了更加智能处理结果，是Java语言的特色，也是Java语言的优势。</p>
+<h1 id="解释器与编译器的工作模式"><a href="#解释器与编译器的工作模式" class="headerlink" title="解释器与编译器的工作模式"></a>解释器与编译器的工作模式</h1><p>JVM分为Server模式和Client模式，对应的编译器也有C1（Client Complier）和C2（Server Complier）两个编译器。C1编译器注重编译的速度，C2编译器注重编译的质量。</p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180704524.png" alt="image-20201208180704524"></p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180809412.png" alt="image-20201208180809412"></p>
+<p>不论在Server模式还是Client模式，解释器只有一个。早期的JVM中解释器只能和C1或C2中的一个混合运作（当然也可以通过设置虚拟机参数，强制只有编译器运作或只有解释器运作）。</p>
+<p>C2编译器启动时长比C1编译器慢，系统稳定执行后，C2编译器的运行速度快于C1编译器。</p>
+<p>在JDK1.7中，分层编译的加入，让两个编译器和一个解释器可以共同参与工作。</p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180630485.png" alt="image-20201208180630485"></p>
+<h3 id="分层编译"><a href="#分层编译" class="headerlink" title="分层编译"></a>分层编译</h3><p>第0层：编译器不工作，只有解释器解释执行程序，可触发第二层编译。</p>
+<p>第1层：解释器和C1编译器共同工作。把热点字节码编译为机器码，并进行简单可靠的优化，如有必要会开启性能监测。可触发第2层编译。</p>
+<p>第2层（或第2层以上）：解释器和C2编译器共同工作。把热点字节码编译为机器码，开启性能监测，并通过监测结果进行激进优化。</p>
+<p>在开启分层编译后，由于两个编译器的加入，许多代码会被多次编译。既通过C1得到了更高的编译速度，也通过C2得到了更高的编译质量，是JVM代码执行系统的一大进步。</p>
+<h3 id="激进优化"><a href="#激进优化" class="headerlink" title="激进优化"></a>激进优化</h3><p>激进优化是不可靠的，所以进行激进优化时需要一个“逃生门”，通常由解释器担任，职责是在激进优化失败后继续完成任务。例如编译器优化措施中有一项优化方法名为“方法内联”。这个优化措施的行为大体是把方法体代码内嵌到它的调用者方法中，减少方法调用的成本。</p>
+<p>但是Java的多态特性让这个优化有时不太可靠，因为在不具体执行方法之前，JVM并不知道该把多个子类中哪个类对应的方法体代码内联到调用者方法中。这时编译器会根据系统性能监测的结果，找到调用最多的方法体内码进行内嵌。</p>
+<p>如果内嵌之后突然调用了一次其他子类的多态虚方法，这个内联方法就没有办法使用了，这时就出现了激进优化失败。这时只能通过预先设定的逃生门解决问题，由解释器不进行优化按照原始步骤解释执行代码完成这次任务。</p>
+<h1 id="编译对象的选择"><a href="#编译对象的选择" class="headerlink" title="编译对象的选择"></a>编译对象的选择</h1><p>编译器介入代码执行后，通过把字节码编译为机器码提升执行速度。被编译成机器码的主要有两项</p>
+<p>被多次调用的方法和被多次执行的循环体。</p>
+<h3 id="被多次调用的方法"><a href="#被多次调用的方法" class="headerlink" title="被多次调用的方法"></a><strong>被多次调用的方法</strong></h3><p>被多次调用的方法很好理解，一个方法被执行的多了，把他编译器机器码确实对提升代码整体运行速度很有帮助。</p>
+<p>判断一个方法是否被多次调用主要通过采样探测法和计数器探测法来进行。</p>
+<p>采样探测法：虚拟机周期性的对方法栈内的方法进行采样统计，如果多次发现同一个方法在栈顶，则说明这个方法频繁的被调用。这时就把它标记为一个多次调用方法等待编译器编译。</p>
+<p>计数器探测法：给每个方法绑定一个计数器，每次方法被调用时计数器加一。然后给系统设定一个阈值，当一段时间内方法的调用次数超过阈值时把它标记为多次调用的方法，等待编译器编译。我们常用的HotSpot虚拟机就是采用这种方法探测热点代码。</p>
+<p><strong>方法调用流程</strong></p>
+<p>当编译器加入后，每个方法可以执行的代码就不止一份了。有一份字节码格式的方法代码，还有可能有多个机器码格式经过优化的方法代码。所以一个方法调用时会进行版本选择。</p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180512923.png" alt="image-20201208180512923"></p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/20190216163612574.png" alt="img"></p>
+<h3 id="被多次执行执行的循环体"><a href="#被多次执行执行的循环体" class="headerlink" title="被多次执行执行的循环体"></a>被多次执行执行的循环体</h3><p>记录方法调用次数是用计数器实现的，记录循环执行次数也是用一种叫回边计数器实现的（这个计数器翻译的很棒啊）。在字节码中控制代码向后跳转的指令被称作“回边”。也就是说回边存在与循环体的末尾，所以回边计数器也存在于循环体的末尾。当回边计数器的值和方法调用计数器的和超过回边计数器的阈值时，就把这段循环体代码标记为多次执行循环体等待编译，并且把回边计数器的值下调一些让这次循环能按原规则执行完毕。</p>
+<p><strong>循环体单次执行流程</strong></p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208180532393.png" alt="image-20201208180532393"></p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/20190216170558765.png" alt="img"></p>
+<h1 id="Graal编译器"><a href="#Graal编译器" class="headerlink" title="Graal编译器"></a>Graal编译器</h1><p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208181219075.png" alt="image-20201208181219075"></p>
+<p><strong>和C1、C2编译器是同级的概念</strong></p>
+<h1 id="AOT编译器"><a href="#AOT编译器" class="headerlink" title="AOT编译器"></a>AOT编译器</h1><p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208181305464.png" alt="image-20201208181305464"></p>
+<p><img src="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/image-20201208181319077.png" alt="image-20201208181319077"></p>
+<p><strong>和JIT编译器是同级的概念</strong></p>
+<p><a href="javascript:;">
+  </a></p>
+
       
       <!-- 增加版权声明 -->
 
@@ -882,6 +260,37 @@
 
 <!-- 增加版权声明结束 -->
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>老板大气<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -901,16 +310,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/19/JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JVM运行时的数据结构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/10/18/orm/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">orm基本操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -925,104 +402,34 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-orm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/18/orm/">orm基本操作</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-        
-        <a href="/2020/10/18/orm/" class="archive-article-date">
-  	<time datetime="2020-10-18T12:18:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="orm基本操作"><a href="#orm基本操作" class="headerlink" title="orm基本操作"></a>orm基本操作</h1>
-        
-          <a class="article-more-a" href="/2020/10/18/orm/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/18/orm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">JVM解释器与编译器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text">解释器与编译器的关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">解释器与编译器的工作模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E7%BC%96%E8%AF%91"><span class="toc-number">3.0.1.</span> <span class="toc-text">分层编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E8%BF%9B%E4%BC%98%E5%8C%96"><span class="toc-number">3.0.2.</span> <span class="toc-text">激进优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">4.</span> <span class="toc-text">编译对象的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A2%AB%E5%A4%9A%E6%AC%A1%E8%B0%83%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">4.0.1.</span> <span class="toc-text">被多次调用的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A2%AB%E5%A4%9A%E6%AC%A1%E6%89%A7%E8%A1%8C%E6%89%A7%E8%A1%8C%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BD%93"><span class="toc-number">4.0.2.</span> <span class="toc-text">被多次执行执行的循环体</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Graal%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">Graal编译器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOT%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">AOT编译器</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
 
   
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &amp;raquo;</a>
-    </nav>
+
   
+
+  
+
 
 
           </div>
@@ -1049,8 +456,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
