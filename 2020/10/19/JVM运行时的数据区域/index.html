@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/2.jpg">
 <meta property="og:image" content="http://example.com/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/20180223224133464.png">
 <meta property="article:published_time" content="2020-10-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-15T10:18:56.974Z">
+<meta property="article:modified_time" content="2021-11-16T09:59:59.329Z">
 <meta property="article:author" content="un1queyan">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -256,7 +256,8 @@
 <h3 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3. 本地方法栈"></a>3. 本地方法栈</h3><p>本地方法栈和虚拟机栈相似，区别就是虚拟机为虚拟机栈执行Java服务（字节码服务），而本地方法栈为虚拟机使用到的Native方法服务。本地方法栈中使用的语言，使用方式，数据结构没有强制要求。</p>
 <h3 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4. Java堆"></a>4. Java堆</h3><p>堆是JVM里最大的一块内存区域，被所有线程共享，在虚拟机启动时创建，此区域的目的就是存放对象实例和数组，几乎所有的对象实例都在这分配（随着JIT的发展已经不是那么绝对了）的.java堆是垃圾收集管理的主要区域，由于现在收集器基本都采用分代收集方法，所以Java的堆中还可以分为新生代，老年代，永久代.1.8之后取消了永久代;其中新生代又划分为Eden空间，From Survivor空间，To Survivor空间。无论怎么划分都是为了更好的回收，分配，利用内存。下图为1.8后的内存模型</p>
 <p><img src="/2020/10/19/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/20180223224133464.png" alt="img"></p>
-<p>根据的Java虚拟机规范，Java的堆可以处于物理不连续的空间中，只要逻辑连续即可。在实现时，既可以实现成固定大小的也可以是可扩展的（通过-Xmx和-Xms控制），如果堆中没有足够的内存完成实例分配，并且堆也无法得到扩展时，将会抛出的OutOfMemoryError异常。</p>
+<p>根据的Java虚拟机规范，Java的堆可以处于物理不连续的空间中，只要逻辑连续即可。在实现时，既可以实现成固定大小的也可以是可扩展的（通过-Xmx和-Xms控制），如果堆中没有足够的内存完成实例分配，并且堆也无法得到扩展时，将会抛+</p>
+<p>出的OutOfMemoryError异常。</p>
 <h3 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5. 方法区"></a>5. 方法区</h3><p>方法区也是一个线程共享的区域，存储已被虚拟机加载的类信息，常量（final），静态变量（static），JIT（即时编译器）编译后的代码等数据。</p>
 <p>Java虚拟机规范把方法区描述为堆的一个逻辑部分，其实堆和方法区可以看成数据部分；虚拟机栈和程序计数器可以看成指令部分；方法区存储一些不会变更的数据，之前热点上使用GC分代收集管理方法区，所以方法区也被称为永久代（本质上两者不等价），但是现在已经使用Native Memory来代替永久代了。</p>
 <p>虚拟机对方法区规范非常宽松，除了和Java的堆一样不需要连续的内存和可以选择固定大小意外，还可以选择不实现垃圾回收。垃圾回收行为在这个区域比较少见但还是有必要的，主要是针对常量池回收和类型的卸载。</p>
@@ -452,7 +453,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 un1queyan
+    		&copy; 2022 un1queyan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -637,6 +638,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
             
             <div class="clearfix"></div>
