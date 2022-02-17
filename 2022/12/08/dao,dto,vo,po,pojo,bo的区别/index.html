@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: mybatis | un1queyan的blog</title>
+  <title>dao,dto,vo,po,pojo,bo的区别 | un1queyan的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="un1queyan的blog">
-<meta property="og:url" content="http://example.com/tags/mybatis/index.html">
+  <meta name="description" content="dao,dto,vo,po,pojo,bo的区别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dao,dto,vo,po,pojo,bo的区别">
+<meta property="og:url" content="http://example.com/2022/12/08/dao,dto,vo,po,pojo,bo%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="un1queyan的blog">
+<meta property="og:description" content="dao,dto,vo,po,pojo,bo的区别">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/12/08/dao,dto,vo,po,pojo,bo%E7%9A%84%E5%8C%BA%E5%88%AB/20180717104224284.jpg">
+<meta property="article:published_time" content="2022-12-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-17T08:40:55.275Z">
 <meta property="article:author" content="un1queyan">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/12/08/dao,dto,vo,po,pojo,bo%E7%9A%84%E5%8C%BA%E5%88%AB/20180717104224284.jpg">
   
     <link rel="alternative" href="/atom.xml" title="un1queyan的blog" type="application/atom+xml">
   
@@ -157,97 +164,250 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-dao,dto,vo,po,pojo,bo的区别" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/01/Mybatis_Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-01-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/01/Mybatis_Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Mybatis-Plus学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      dao,dto,vo,po,pojo,bo的区别
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+  
+        
+        <a href="/2022/12/08/dao,dto,vo,po,pojo,bo%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+  	<time datetime="2022-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="dao-dto-vo-po-pojo-bo的区别"><a href="#dao-dto-vo-po-pojo-bo的区别" class="headerlink" title="dao,dto,vo,po,pojo,bo的区别"></a>dao,dto,vo,po,pojo,bo的区别</h2><span id="more"></span>
+
+<hr>
+<h3 id="1-dao"><a href="#1-dao" class="headerlink" title="1. dao"></a>1. dao</h3><p><strong>DAO</strong> (Data Access Object) :  数据访问对象</p>
+<ul>
+<li>主要用来封装对数据库的操作（curd）</li>
+<li>通过接受Business层的数据，把POJO持久化成PO</li>
+</ul>
+<h3 id="2-PO"><a href="#2-PO" class="headerlink" title="2. PO"></a>2. PO</h3><p><strong>PO</strong>    (Persistent Object) : 持久化层对象，他跟持久层(通常是关系型数据库)的数据结构形成一一对应的映射关系，如果持久层是关系型数据库，那么，数据表中的每个字段（或者若干个）就对应PO的一个（或若干个）属性</p>
+<ul>
+<li>有时也被称为Data对象，对应数据库中的Entity,可以简单的认为一个PO对应数据库中的一条记录</li>
+<li>在hibernate持久化框架中与insert/update操作密切相关</li>
+<li>PO中不应该包含任何对数据库的操作</li>
+</ul>
+<h3 id="3-POJO"><a href="#3-POJO" class="headerlink" title="3. POJO"></a>3. POJO</h3><p><strong>POJO</strong> (Plain Ordinary Java Object ) 无规则简单java对象, 一个中间对象，可以转化为PO、DTO、VO。</p>
+<ul>
+<li>POJO持久化之后==〉PO</li>
+<li>POJO传输过程中==〉DTO</li>
+<li>POJO用作表示层==〉VO</li>
+</ul>
+<h3 id="4-DTO"><a href="#4-DTO" class="headerlink" title="4. DTO"></a>4. DTO</h3><p><strong>DTO</strong>(Data Transfer Object) : 数据传输对象，这个概念来源J2EE的设计模式，原来的目的是EJB的分布式应用提供粗粒度的数据实体，以减少分布式调用的次数，从而提高分布式调用的性能和降低网络负载，但在这里，我泛指用于展示层与服务层之间的数据传输对象。</p>
+<ul>
+<li>在需要跨进程进行远程传播时，他不应该包含业务逻辑</li>
+<li>比如一张表有100个字段，那么对应的PO就应该有100个属性（大多数情况下，DTO的数据来源于多个表），但是view层只显示10个字段，那么久没有必要把整个PO对象传到client，这时我们就可以用只有这10个属性的DTO来传输数据到client，这样也不会暴露server端的<strong>表结构</strong>。到达客户端以后，如果用这个对象来对应界面显示，那此时他的身份就转为VO</li>
+</ul>
+<h3 id="5-VO"><a href="#5-VO" class="headerlink" title="5. VO"></a>5. VO</h3><p><strong>VO</strong>(View Object) : 视图对象，用于展示层，它的作用是把某个指定页面（或组件）的所有数据封装起来。值对象，表现层对象。</p>
+<ul>
+<li>主要对应页面显示 （web页面/swt， swing界面）的数据对象    </li>
+<li>可以和表对应，也可以不，根据业务的需要</li>
+</ul>
+<h3 id="6-BO"><a href="#6-BO" class="headerlink" title="6. BO"></a>6. BO</h3><p><strong>BO</strong>(Business Objec) : 业务对象，业务对象的主要逻辑是把业务逻辑封装为一个对象。这个对象可以包含一个或多个其他对象。</p>
+<p>比如一个简历，有教育经历、工作经历、社会关系等等。我们可以把教育经历对应一个PO，工作经历对应一个PO，社会关系对应一个PO。</p>
+<p>建立一个对应简历的BO对象处理简历，每个BO包含这些PO。</p>
+<p>这样处理业务逻辑时，我们就可以针对BO去处理。</p>
+<p>封装业务逻辑为一个对象（<strong>可以包括多个PO，通常需要将BO转化成PO，才能进行数据的持久化，反之，从DB中得到的PO，需要转化成BO才能在业务层使用</strong>）。</p>
+<ul>
+<li>只包含业务对象的属性</li>
+<li>只包含业务方法</li>
+<li>两者都包含</li>
+</ul>
+<p>简易的关系图：</p>
+<p><img src="/2022/12/08/dao,dto,vo,po,pojo,bo%E7%9A%84%E5%8C%BA%E5%88%AB/20180717104224284.jpg"></p>
+
+      
+      <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>老板大气<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/12/08/dao,dto,vo,po,pojo,bo%E7%9A%84%E5%8C%BA%E5%88%AB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/01/Mybatis-Plus%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2022-01-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/01/Mybatis_Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mybatis-Plus学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/01/Mybatis-Plus%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF/">Mybatis-Plus学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#dao-dto-vo-po-pojo-bo%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">dao,dto,vo,po,pojo,bo的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-dao"><span class="toc-number">1.1.</span> <span class="toc-text">1. dao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PO"><span class="toc-number">1.2.</span> <span class="toc-text">2. PO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-POJO"><span class="toc-number">1.3.</span> <span class="toc-text">3. POJO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-DTO"><span class="toc-number">1.4.</span> <span class="toc-text">4. DTO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-VO"><span class="toc-number">1.5.</span> <span class="toc-text">5. VO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-BO"><span class="toc-number">1.6.</span> <span class="toc-text">6. BO</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
+
 
 
           </div>
@@ -275,9 +435,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
