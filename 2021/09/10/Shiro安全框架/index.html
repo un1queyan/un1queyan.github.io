@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="un1queyan的blog">
 <meta property="og:description" content="Shiro安全框架">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bkimg.cdn.bcebos.com/pic/9825bc315c6034a8f93c7d0cce13495408237665?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto">
+<meta property="og:image" content="http://example.com/2021/09/10/Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/65.jpg">
 <meta property="og:image" content="http://example.com/2021/09/10/Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/image-20211129100547246.png">
 <meta property="og:image" content="http://example.com/2021/09/10/Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/image-20211129103548403.png">
 <meta property="og:image" content="http://example.com/2021/09/10/Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/image-20211129105904336.png">
@@ -34,11 +34,11 @@
 <meta property="og:image" content="http://example.com/2021/09/10/Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/image-20211201151841809.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/edf8486457b203795e1a96092c45e729.png">
 <meta property="article:published_time" content="2021-09-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-17T03:14:05.981Z">
+<meta property="article:modified_time" content="2022-02-17T03:24:23.945Z">
 <meta property="article:author" content="un1queyan">
 <meta property="article:tag" content="Shiro">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bkimg.cdn.bcebos.com/pic/9825bc315c6034a8f93c7d0cce13495408237665?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto">
+<meta name="twitter:image" content="http://example.com/2021/09/10/Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/65.jpg">
   
     <link rel="alternative" href="/atom.xml" title="un1queyan的blog" type="application/atom+xml">
   
@@ -223,7 +223,7 @@
 <p>（3）加密</p>
 <p>（4）会话管理</p>
 <p>（5）缓存</p>
-<h3 id="3、核心组件"><a href="#3、核心组件" class="headerlink" title="3、核心组件"></a>3、核心组件</h3><p><img src="https://bkimg.cdn.bcebos.com/pic/9825bc315c6034a8f93c7d0cce13495408237665?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto" alt="img"></p>
+<h3 id="3、核心组件"><a href="#3、核心组件" class="headerlink" title="3、核心组件"></a>3、核心组件</h3><p><img src="/2021/09/10/Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/65.jpg" alt="img"></p>
 <h4 id="（1）Subject（用户）"><a href="#（1）Subject（用户）" class="headerlink" title="（1）Subject（用户）"></a>（1）Subject（用户）</h4><p>即“当前操作用户”。但是，在Shiro中，Subject这一概念并不仅仅指人，也可以是第三方进程、后台帐户（Daemon Account）或其他类似事物。它仅仅意味着“当前跟软件交互的东西”。</p>
 <h4 id="（2）SecurityManager（安全管理器）"><a href="#（2）SecurityManager（安全管理器）" class="headerlink" title="（2）SecurityManager（安全管理器）"></a>（2）SecurityManager（安全管理器）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">它是Shiro框架的核心，Shiro通过SecurityManager来管理内部组件实例，并通过它来提供安全管理的各种服务。</span><br><span class="line"></span><br><span class="line">具体服务包括：</span><br><span class="line"></span><br><span class="line">######  Authentication：身份认证/登录(账号密码验证)。</span><br><span class="line"></span><br><span class="line">######  Authorization：授权，即角色或者权限验证。</span><br><span class="line"></span><br><span class="line">######  Session Manager：会话管理，用户登录后的session相关管理。</span><br><span class="line"></span><br><span class="line">###### Cryptography：加密，密码加密等。</span><br><span class="line"></span><br><span class="line">###### Web Support：Web支持，集成Web环境。</span><br><span class="line"></span><br><span class="line">###### Caching：缓存，用户信息、角色、权限等缓存到如redis等缓存中。</span><br><span class="line"></span><br><span class="line">###### Concurrency：多线程并发验证，在一个线程中开启另一个线程，可以把权限自动传播过去。</span><br><span class="line"></span><br><span class="line">######  Testing：测试支持；</span><br><span class="line"></span><br><span class="line">###### Run As：允许一个用户假装为另一个用户（如果他们允许）的身份进行访问。</span><br><span class="line"></span><br><span class="line">###### Remember Me：记住我，登录后，下次再来的话不用登录了。</span><br></pre></td></tr></table></figure>
 
